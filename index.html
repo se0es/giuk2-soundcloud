@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>기우기 사클 ~.~</title>
+<script type="text/javascript">
+<!--
+//*********************************************************
+//
+// ?価するメンバ?の名前のリスト
+//
+// この部分を変更して下さい。名前の削除・追加も可?です。
+// 名前を引用符(")で括り、コン?(,)で区切って下さい。
+// 但し、リストの最後にはコン?を入れてはいけません。
+//
+//*********************************************************
+var namMember = new Array(
+
+"<img src=> <br>Candlefumetodisperse</br>",
+"<img src=> <br>Do not play with me (prod.noden)(feat.김재현)</br>",
+"<img src=> <br>까지</br>",
+"<img src=> <br>뀩이</br>",
+"<img src=> <br>-날개없는천사-</br>",
+"<img src=> <br>로보트도 인간에게 감정을 느낀다 (prod.CyA)(feat.Leedo)</br>",
+"<img src=> <br>Over (feat.김재현)</br>",
+"<img src=> <br>-연금술- (PROD.CyA)(feat.김재현.ryo)</br>",
+"<img src=> <br>너는 요즘 어때 ( feat. 기욱 )</br>",
+"<img src=> <br>WEVE</br>",
+"<img src=> <br>CyA Leedo project 밤하늘의 별자리는 곧 우리의 자리 (shooting Star)(Prod.CyA)</br>",
+"<img src=> <br>TALK KI (Feat.CyA)</br>",
+"<img src=> <br>아무것도 없었다는 듯이</br>",
+"<img src=> <br>우리가 사랑했을까 (Feat.ryo)</br>",
+"<img src=> <br>CAFE (feat. 기욱)</br>",
+"<img src=> <br>감상평 1000장 (휘둥그레 0_0)(feat.Leedo)</br>",
+"<img src=> <br>광합성 (Prod. CyA) by SUNWOO</br>",
+"<img src=> <br>HATE (feat. NAMED LATE)(Prod. RARE)</br>",
+"<img src=> <br>꽃에 물 안주고 피길 원하네 (Prod.CyA)(Feat.Baw)</br>",
+"<img src=> <br>물든다 (Feat.roon,RARE)</br>",
+"<img src=> <br>동서남북 (2019.05.28)(Prod.CyA)</br>",
+"<img src=> <br>-과거회상버프- (Prod.CyA)(Feat.kami,ryo)</br>",
+"<img src=> <br>지박령 (Feat.Woobin Of Luminous)</br>",
+"<img src=> <br>GOM GOM (Feat.Baw,정훈)(Prod.wavytrbl)</br>",
+"<img src=> <br>Tone down (Prod.Splashgvng & King Theta) CyA Leedo project</br>",
+"<img src=> <br>Long Time No See (Prod.CyA)(Feat.JMS)</br>",
+"<img src=> <br>사람 하나 (Prod.wavytrbl)</br>",
+"<img src=> <br>미끄러지듯이 골인 (Prod.GIUK)(feat.서호)</br>",
+"<img src=> <br>Yummy (Prod.Ruiz) (feat.BAE STHMA)</br>",
+"<img src=> <br>- Zenith- (Prod.Gray Dot)</br>",
+"<img src=> <br>빛을 사랑한 어둑시니 (Prod.GIUK)</br>",
+"<img src=> <br>143</br>",
+"<img src=> <br>들뜬 섬 (Prod.Gray Dot)</br>",
+"<img src=> <br>Veronica Says, (Prod.Gray Dot)</br>",
+"<img src=> <br>사람 하나 (Prod. wavytrbl) by SUNWOO</br>",
+"<img src=> <br>BEHIND (Feat.기욱 (GIUK),SUNWOO)</br>",
+"<img src=> <br>난 물음표 넌 느낌표 (Prod.ST4NDARD)(Feat.Aden)</br>",
+"<img src=> <br>백색소음 (Prod. DJANGHO UNCHAINED) (Feat.CyA)</br>",
+"<img src=> <br>그날의 여름바다로 (feat. CyA)</br>",
+"<img src=> <br>My Blue (기욱 (GIUK))</br>",
+"<img src=> <br>밤의 책장 (Feat. 기욱)</br>",
+"<img src=> <br>Same Old (ft. 기욱 GIUK)</br>",
+"<img src=> <br>CHEEZEEEEE!(2017)</br>",
+"<img src=> <br>Plan B (2018)</br>",
+"<img src=> <br>2U (2019)</br>",
+"<img src=> <br>절벽 위의 집 (NEW VER.)</br>",
+"<img src=> <br>ENNNNNFFFFFJ(Prod.COLDE$T)</br>",
+"<img src=> <br>천체망원경 (Prod.GIUK)(Feat.WOOBIN)</br>",
+"<img src=> <br>하늘에 구름 한점 없더라 (Prod. IOF)(Feat.BAW,형근)</br>",
+"<img src=> <br>LEFT RIGHT(Prod.GIUK)(Feat.ADEN)</br>",
+"<img src=> <br>Xilhouette(Prod.IOF)(Feat.루나벨라)</br>",
+"<img src=> <br>Gray Dot & 기욱 (GIUK) - Blood Winter</br>",
+"<img src=> <br>000124 REMASTER</br>",
+"<img src=> <br>X X (feat. GIUK)</br>",
+"<img src=> <br>초대장 (Feat. 윤민, 기욱)</br>",
+"<img src=> <br>BADA💙🌊</br>",
+"<img src=> <br>청춘 SERVER 속 나타난 지뢰 (Feat.루나벨라)</br>",
+"<img src=> <br>나와 (Feat.Aden)</br>",
+"<img src=> <br>피투성이 피노키오</br>",
+"<img src=> <br>SLOMO!</br>",
+"<img src=> <br>고장난 거 같아 (WOO WEE WAIT YA) (Feat.Baw)</br>",
+"<img src=> <br>제가 사랑에 좀 약해서요 (Feat.투명안경박정우)</br>",
+"<img src=> <br>아포칼 Melody Sketch</br>",
+"<img src=> <br>멸종 위기종 (마라톤 VER.)</br>",
+"<img src=> <br>작업실에서부터 다시 시나리오 1-</br>",
+"<img src=> <br>이 세상이 없어진다면</br>",
+"<img src=> <br>UNBLOWN (Orchestral Only)</br>",
+"<img src=> <br>적응형 동물 (타임머신)</br>",
+"<img src=> <br>Logo Guide .MP3</br>",
+"<img src=> <br>어쩌다 한번 (Feat.Yoon Min)(Prod. Grabby)</br>",
+"<img src=> <br>추격자 (Band Cover By Giuk)</br>",
+"<img src=> <br>Fly in the night (Feat. 기욱(GIUK))</br>",
+"<img src=> <br>위브얌 일어나</br>",
+"<img src=> <br>It's Okay (Feat. 기욱, 이제)</br>",
+"<img src=> <br>내영스 (Orchestra)</br>",
+"<img src=> <br>Concert Hall (Feat.루나벨라)</br>",
+"<img src=> <br>옳고 그름을 떠나 (Feat.구구)</br>",
+"<img src=> <br>지구에 혼자 남게 된다면 (Feat.이제) (사클ver.)</br>",
+"<img src=> <br>생각을 먹는 괴물</br>",
+"<img src=> <br>LOVE HUNTER</br>",
+"<img src=> <br>조명 없는 건물 (Feat.DIVINE)</br>",
+"<img src=> <br>ROCK THE WORLD! (Feat.Yoon MIN)</br>",
+"<img src=> <br>하고 싶은 말은 I LOVE U💕 (Feat. 기욱(GIUK))</br>",
+"<img src=> <br>전자파(電磁波)</br>",
+"<img src=> <br>NERD BUDDY (Feat.Aden)</br>",
+"<img src=> <br>어디까지</br>",
+"<img src=> <br>thunderbolt</br>",
+"<img src=> <br>BABO</br>",
+"<img src=> <br>추월 (Overtake)</br>",
+"<img src=> <br>아무것도 없었다는 듯이 Remix (Feat.Sunwoo,RARE,WOOBIN)</br>",
+"<img src=> <br>2U (Mixed by CyA) (Prod. N soul) (Feat. G hun, 김재현, LEEDO)</br>",
+"<img src=> <br>2000.01.24 (Mixed by CyA)</br>",
+"<img src=> <br>POlaROiD (Prod. CyA)</br>",
+"<img src=> <br>WITH YOU (Prod. CyA) (Feat. LEEDO)</br>",
+"<img src=> <br>움칫둠칫 (MOVIN MOVIN) (Prod. CyA) (Feat. LEEDO)</br>",
+"<img src=> <br>Tube (Mixed by CyA) (Feat. LEEDO)</br>",
+"<img src=> <br>NexT U (Prod. CyA) (CyA LEEDO project)</br>",
+"<img src=> <br>CaMe TruE (Prod. CyA) (Feat. NAMED LATE)</br>",
+"<img src=> <br>PIPE (Prod. CyA)</br>",
+"<img src=> <br>Ocean Drive (Mixed by CyA) (Feat. LEEDO)</br>",
+"<img src=> <br>Cybernetic (Prod. CyA) (Feat. 김재현)</br>",
+
+
+
+
+
+
+
+
+
+
+);
+//*********************************************************
+
+var lstMember = new Array();
+var parent = new Array();
+var equal = new Array();
+var rec = new Array();
+var cmp1,cmp2;
+var head1,head2;
+var nrec;
+
+var numQuestion;
+var totalSize;
+var finishSize;
+var finishFlag;
+
+//変数の初期化+++++++++++++++++++++++++++++++++++++++++++++
+function initList(){
+var n = 0;
+var mid;
+var i;
+
+//??トすべき配列
+lstMember[n] = new Array();
+for (i=0; i<namMember.length; i++) {
+lstMember[n][i] = i;
+}
+parent[n] = -1;
+totalSize = 0;
+n++;
+
+for (i=0; i<lstMember.length; i++) {
+//要素数が２以上なら２分割し、
+//分割された配列をlstMemberの最後に加える
+if(lstMember[i].length>=2) {
+mid = Math.ceil(lstMember[i].length/2);
+lstMember[n] = new Array();
+lstMember[n] = lstMember[i].slice(0,mid);
+totalSize += lstMember[n].length;
+parent[n] = i;
+n++;
+lstMember[n] = new Array();
+lstMember[n] = lstMember[i].slice(mid,lstMember[i].length);
+totalSize += lstMember[n].length;
+parent[n] = i;
+n++;
+}
+}
+
+//保存用配列
+for (i=0; i<namMember.length; i++) {
+rec[i] = 0;
+}
+nrec = 0;
+
+//引き分けの結果を保存するリスト
+//キ?：リンク始?の値
+// 値 ：リンク終?の値
+for (i=0; i<=namMember.length; i++) {
+equal[i] = -1;
+}
+
+cmp1 = lstMember.length-2;
+cmp2 = lstMember.length-1;
+head1 = 0;
+head2 = 0;
+numQuestion = 1;
+finishSize = 0;
+finishFlag = 0;
+}
+
+//リストの??ト+++++++++++++++++++++++++++++++++++++++++++
+//flag：比較結果
+//  -1：左を選択
+//   0：引き分け
+//   1：右を選択
+function sortList(flag){
+var i;
+var str;
+
+//recに保存
+if (flag<0) {
+rec[nrec] = lstMember[cmp1][head1];
+head1++;
+nrec++;
+finishSize++;
+while (equal[rec[nrec-1]]!=-1) {
+rec[nrec] = lstMember[cmp1][head1];
+head1++;
+nrec++;
+finishSize++;
+}
+}
+else if (flag>0) {
+rec[nrec] = lstMember[cmp2][head2];
+head2++;
+nrec++;
+finishSize++;
+while (equal[rec[nrec-1]]!=-1) {
+rec[nrec] = lstMember[cmp2][head2];
+head2++;
+nrec++;
+finishSize++;
+}
+}
+else {
+rec[nrec] = lstMember[cmp1][head1];
+head1++;
+nrec++;
+finishSize++;
+while (equal[rec[nrec-1]]!=-1) {
+rec[nrec] = lstMember[cmp1][head1];
+head1++;
+nrec++;
+finishSize++;
+}
+equal[rec[nrec-1]] = lstMember[cmp2][head2];
+rec[nrec] = lstMember[cmp2][head2];
+head2++;
+nrec++;
+finishSize++;
+while (equal[rec[nrec-1]]!=-1) {
+rec[nrec] = lstMember[cmp2][head2];
+head2++;
+nrec++;
+finishSize++;
+}
+}
+
+//片方のリストを走査し終えた後の処理
+if (head1<lstMember[cmp1].length && head2==lstMember[cmp2].length) {
+//リストcmp2が走査済 - リストcmp1の残りをコピ?
+while (head1<lstMember[cmp1].length){
+rec[nrec] = lstMember[cmp1][head1];
+head1++;
+nrec++;
+finishSize++;
+}
+}
+else if (head1==lstMember[cmp1].length && head2<lstMember[cmp2].length) {
+//リストcmp1が走査済 - リストcmp2の残りをコピ?
+while (head2<lstMember[cmp2].length){
+rec[nrec] = lstMember[cmp2][head2];
+head2++;
+nrec++;
+finishSize++;
+}
+}
+
+//両方のリストの最後に到達した場合は
+//親リストを更新する
+if (head1==lstMember[cmp1].length && head2==lstMember[cmp2].length) {
+for (i=0; i<lstMember[cmp1].length+lstMember[cmp2].length; i++) {
+lstMember[parent[cmp1]][i] = rec[i];
+}
+lstMember.pop();
+lstMember.pop();
+cmp1 = cmp1-2;
+cmp2 = cmp2-2;
+head1 = 0;
+head2 = 0;
+
+//新しい比較を行う前にrecを初期化
+if (head1==0 && head2==0) {
+for (i=0; i<namMember.length; i++) {
+rec[i] = 0;
+}
+nrec = 0;
+}
+}
+
+if (cmp1<0) {
+str = "Battle No."+(numQuestion-1)+"<br>"+Math.floor(finishSize*100/totalSize)+"% sorted.";
+document.getElementById("battleNumber").innerHTML = str;
+
+showResult();
+finishFlag = 1;
+}
+else {
+showImage();
+}
+}
+
+//結果の?示+++++++++++++++++++++++++++++++++++++++++++++++
+function showResult() {
+var ranking = 1;
+var sameRank = 1;
+var str = "";
+var i;
+
+str += "<table style=\"width:200px; font-size:12px; line-height:120%; margin-left:auto; margin-right:auto; border:1px solid #000; border-collapse:collapse\" align=\"center\">";
+str += "<tr><td style=\"color:#ffffff; background-color:#000; text-align:center;\">순위<\/td><td style=\"color:#ffffff; background-color:#000; text-align:center;\">이름<\/td><\/tr>";
+
+for (i=0; i<namMember.length; i++) {
+str += "<tr><td style=\"border:1px solid #000; text-align:right; padding-right:5px;\">"+ranking+"<\/td><td style=\"border:1px solid #000; padding-left:5px;\">"+namMember[lstMember[0][i]]+"<\/td><\/tr>";
+if (i<namMember.length-1) {
+if (equal[lstMember[0][i]]==lstMember[0][i+1]) {
+sameRank++;
+} else {
+ranking += sameRank;
+sameRank = 1;
+}
+}
+}
+str += "<\/table>";
+
+document.getElementById("resultField").innerHTML = str;
+}
+
+//比較する２つ要素の?示+++++++++++++++++++++++++++++++++++
+function showImage() {
+var str0 = "Battle No."+numQuestion+"<br>"+Math.floor(finishSize*100/totalSize)+"% sorted.";
+var str1 = ""+toNameFace(lstMember[cmp1][head1]);
+var str2 = ""+toNameFace(lstMember[cmp2][head2]);
+
+document.getElementById("battleNumber").innerHTML = str0;
+document.getElementById("leftField").innerHTML = str1;
+document.getElementById("rightField").innerHTML = str2;
+
+numQuestion++;
+}
+
+//数値を名前（顔文字）に変換+++++++++++++++++++++++++++++++
+function toNameFace(n){
+var str = namMember[n];
+
+//顔文字を追加する場合は以下のコメントアウトを外す
+//namMemberのインデックスと矛盾しないように注意
+/*
+str += "<br>────<br>";
+switch(n) {
+//case -1 はサンプルなので削除すること
+case -1: str+="（ ´∀｀）";break;
+default: str+=""+n;
+}
+*/
+return str;
+}
+//-->
+</script>
+<style type="text/css">
+<!--
+/**********************************************************
+
+ ?のス?イルを変更する場合はここを編集してください。
+
+**********************************************************/
+#mainTable{
+font-size: 12px;
+font-family: '돋움',sans-serif;
+text-align: center;
+vertical-align: middle;
+width: 410px;
+margin-left: auto;
+margin-right: auto;
+border-collapse: separate;
+border-spacing: 10px 5px;
+}
+#leftField{
+width: 120px;
+height: 150px;
+border: 1px solid #000;
+}
+#rightField{
+width: 120px;
+height: 150px;
+border: 1px solid #000;
+}
+.middleField{
+width: 120px;
+height: 70px;
+border: 1px solid #000;
+}
+//-->
+<!--
+A{
+  text-decoration : none;
+}
+-->
+<!--
+a:hover{color:#99ccff;}
+-->
+</style>
+<meta name="generator" content="Namo WebEditor(Trial)">
+<meta http-equiv="content-type" content="text/html; charset=utf-8"></head>
+
+<body text="#000000" bgcolor="#ffffff" link="#0099ff" vlink="#0099ff" alink="#0099ff">
+<table id="mainTable" align="center">
+<tr>
+        <td id="battleNumber" colspan="3" style="padding-bottom: 10px;">
+            <p>&nbsp;</p>
+        </td>
+</tr>
+<tr>
+<td id="leftField" onClick="if(finishFlag==0)sortList(-1);" rowspan="2">
+&nbsp;
+</td>
+
+<td id="rightField" onClick="if(finishFlag==0)sortList(1);" rowspan="2">
+</td>
+</tr>
+
+</table><br><br>
+<div id="resultField" style="text-align:center;">
+    <p><font size="2" face="굴림" color="#00008B"><span style="">신곡 공개 시 업데이트됩니다.</font></p>
+    <p><font size="2" face="굴림" color="#00008B">동일한 제목의 노래가 있습니다.</font></p>
+    <p><font size="1" face="굴림" color="#4682B4">문의 @giuklover</font></p>
+
+</div>
+<script type="text/javascript">
+<!--
+initList();
+showImage();
+//-->
+</script>
+
+</body>
+</html>
